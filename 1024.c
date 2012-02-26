@@ -5,6 +5,7 @@
 #define LL "%lld"
 #endif
 #include <stdio.h>
+#include <string.h>
 #define INT32_MIN              (-2147483647-1)
 #define N 1000001
 #define MAX(x,y) ((x)>(y)?(x):(y))
@@ -18,8 +19,9 @@ int main(void)
 	while(~scanf("%d%d",&m,&n)){
 		for(i=1;i<=n;++i){
 			scanf("%d",num+i);
-			dp[0][i]=dp[1][i]=0;
 		}
+		memset(dp[1]+1,0,n*sizeof(int));
+		memset(dp[0]+1,0,n*sizeof(int));
 		/* printf("%d %d %d",m,n,nums[0]); */
 		/* for(i=1;i<=n;++i){ */
 		/* 	printf(" %d",nums[i]); */
