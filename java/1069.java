@@ -15,7 +15,18 @@ class block
 	return x+"\t"+y+"\t"+z;
     }
 }
-class cmp1 implements Comparator<block>
+class cmp_area implements Comparator<block>
+{
+    public int compare(block a,block b)
+    {
+	if (a.x*a.y>b.x*b.y)
+	    return 1;
+	else
+	    return 0;
+    }
+}
+
+class cmp_edge implements Comparator<block>
 {
     public int compare(block a,block b)
     {
@@ -38,7 +49,7 @@ class Main
 	int []q=new int[N];
 	int n,i,j,max;
 	int x,y,z;
-	cmp1 cmp=new cmp1();
+	cmp_edge cmp=new cmp_edge();
 	int Case=0;
 	Scanner sc=new Scanner(System.in);
 	while((n=sc.nextInt())!=0){
@@ -58,15 +69,7 @@ class Main
 		}
 	    }
 	    n=j;
-	    for(i=0;i<n;++i){
-		for(j=i+1;j<n;++j){
-		    if(cmp.compare(arr[j],arr[i])<0){
-			temp=arr[j];
-			arr[j]=arr[i];
-			arr[i]=temp;
-		    }
-		}
-	    }
+	    Arrays.sort(arr,0,n,new cmp_area());
 	    for(i=0;i<n;++i){
 		max=0;
 		for(j=0;j<i;++j){
