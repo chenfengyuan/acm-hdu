@@ -9,12 +9,13 @@ class Main
 	int c,n,m;
 	int i,j,k;
 	int max;
-	int [][]arr=new int[N][M];
+	int [][]arr;
 	Scanner sc=new Scanner(System.in);
 	c=sc.nextInt();
 	while(c-->0){
 	    n=sc.nextInt();
 	    m=sc.nextInt();
+	    arr=new int[n+1][m+1];
 	    for(i=1;i<=n;++i){
 		for(j=1;j<=m;++j){
 		    arr[i][j]=sc.nextInt();
